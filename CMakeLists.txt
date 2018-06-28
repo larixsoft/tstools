@@ -122,6 +122,21 @@ set(LIB_SRC_FILES
 add_definitions(-DTSTOOLS_VERSION=${PRODUCT_VERSION_STR})
 
 
+find_package(PkgConfig)
+pkg_check_modules(GST REQUIRED gstreamer-1.0>=1.4
+                               gstreamer-sdp-1.0>=1.4
+                               gstreamer-video-1.0>=1.4
+                               gstreamer-app-1.0>=1.4)
+
+message(STATUS "GST_FOUND = ${GST_FOUND}")
+message(STATUS "GST_LIBRARIES = ${GST_LIBRARIES}")
+message(STATUS "GST_LIBRARY_DIRS = ${GST_LIBRARY_DIRS}")
+message(STATUS "GST_LDFLAGS = ${GST_LDFLAGS}")
+message(STATUS "GST_LDFLAGS_OTHER = ${GST_LDFLAGS_OTHER}")
+message(STATUS "GST_INCLUDE_DIRS = ${GST_INCLUDE_DIRS}")
+message(STATUS "GST_CFLAGS = ${GST_CFLAGS}")
+message(STATUS "GST_CFLAGS_OTHER = ${GST_CFLAGS_OTHER}")
+
 add_library(utils SHARED ${LIB_SRC_FILES})
 
 add_executable(esfilter src/esfilter.c)

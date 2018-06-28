@@ -1,0 +1,1 @@
+set PATH=%ProgramFiles%\cmake\bin;%PATH%
